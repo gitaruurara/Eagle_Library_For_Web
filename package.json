@@ -7,9 +7,9 @@
     "dev": "npm-run-all --parallel dev:frontend dev:backend",
     "dev:frontend": "vite --config ./config/vite.config.js",
     "dev:backend": "cd backend && source ../.venv1/bin/activate && uvicorn main:app --host 0.0.0.0 --port 8000 --reload",
-    "build": "tsc -b && vite build　--config ./config/vite.config.js",
+    "build": "tsc -p ./config/tsconfig.json && vite build --config ./config/vite.config.js",
     "lint": "eslint .",
-    "preview": "vite preview　--config ./config/vite.config.js"
+    "preview": "vite preview --config ./config/vite.config.js"
   },
   "dependencies": {
     "react": "^19.1.0",

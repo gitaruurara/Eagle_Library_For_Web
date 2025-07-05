@@ -1,4 +1,6 @@
-# Eagle Web Interface
+![Eagle Web Interface Banner](img/スクショ画像.png)
+
+# <img src="public/favicon.png" alt="Icon" width="64" height="64"> Eagle_Library_For_Web
 
 このプロジェクトは、[Eagle](https://eagle.cool/) ソフトウェアで管理されているライブラリをWebブラウザから管理・閲覧するためのインターフェースを提供します。Eagleは、画像、ビデオ、オーディオ、ドキュメントなど、あらゆる種類のデジタルアセットを収集、整理、参照するための強力なツールです。このWebインターフェースは、Eagleアプリケーションがインストールされている環境で、そのライブラリにWebブラウザ経由でアクセスすることを可能にします。
 
