@@ -1,0 +1,377 @@
+.masonry-grid {
+  display: flex;
+  margin-left: -10px; /* gutter size offset */
+  width: 100%;
+}
+
+.masonry-grid-column {
+  padding-left: 10px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.masonry-grid-column img {
+  border-radius: 15px;
+  margin-bottom: 10px; /* vertical gutter */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.masonry-grid-column img:hover {
+  animation: gentle-wobble 2s ease-in-out infinite;
+  box-shadow: 
+    0 0 5px 2px rgba(255, 255, 255, 0.45),
+    0 0 15px 8px rgba(155, 255, 255, 0.35),
+    0 0 25px 15px rgba(0, 191, 255, 0.05),
+    0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+@keyframes gentle-wobble {
+  0%, 100% {
+    transform: scale(1.02);
+  }
+  50% {
+    transform: scale(1.0);
+  }
+}
+
+/* ライブラリ選択ドロップダウンのスタイル */
+.library-selector-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0; /* autoを削除 */
+  padding: 10px 15px; /* 小さくする */
+  background-color: #ffebee; /* 淡いピンク */
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: none; /* 削除 */
+  justify-content: flex-start; /* 左寄せ */
+}
+
+.library-label {
+  font-size: 1em; /* 小さくする */
+  color: #d81b60; /* 濃いピンク */
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.library-dropdown {
+  padding: 8px 12px; /* 小さくする */
+  font-size: 0.9em; /* 小さくする */
+  border: 2px solid #f48fb1; /* 明るいピンク */
+  border-radius: 20px;
+  background-color: #fff8e1; /* クリーム色 */
+  color: #880e4f; /* 暗いピンク */
+  appearance: none; /* デフォルトのドロップダウン矢印を非表示 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23f48fb1" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>'); /* カスタム矢印 */
+  background-repeat: no-repeat;
+  background-position: right 8px center; /* 調整 */
+  background-size: 18px; /* 調整 */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.library-dropdown:hover {
+  border-color: #ec407a; /* ホバーで少し濃く */
+  box-shadow: 0 0 8px rgba(236, 64, 122, 0.4);
+}
+
+.library-dropdown:focus {
+  outline: none;
+  border-color: #ec407a;
+  box-shadow: 0 0 0 3px rgba(236, 64, 122, 0.2);
+}
+
+/* 現在のライブラリ表示の新しいスタイル */
+.current-library-display-modern {
+  text-align: left;
+  margin: 0;
+  padding: 5px 10px; /* より小さく */
+  background-color: #bfe5f3; /* 淡い黄色 */
+  color: #484d59; /* 濃い緑 */
+  border: 1px solid #eaeaea; /* 黄緑のボーダー */
+  border-radius: 15px; /* 角丸 */
+  font-size: 0.8em; /* さらに小さく */
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  display: inline-block; /* 内容に合わせて幅を調整 */
+  white-space: nowrap; /* テキストの折り返しを防ぐ */
+  overflow: hidden; /* はみ出したテキストを隠す */
+  text-overflow: ellipsis; /* はみ出したテキストを...で表示 */
+}
+
+.current-library-display-modern span {
+  font-weight: normal; /* ライブラリ名部分は通常の太さに */
+  color: rgb(33, 37, 43); /* 少し明るい緑 */
+}
+
+/* スライダーのスタイル */
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0; /* autoを削除 */
+  padding: 10px 15px; /* 小さくする */
+  background-color: #e8f5e9; /* 淡い緑 */
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: none; /* 削除 */
+  justify-content: flex-start; /* 左寄せ */
+}
+
+.slider-label {
+  font-size: 1em; /* 小さくする */
+  color: #2e7d32; /* 濃い緑 */
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.column-slider {
+  width: 150px; /* 小さくする */
+  height: 6px; /* 小さくする */
+  background: #a5d6a7; /* 明るい緑 */
+  border-radius: 3px; /* 小さくする */
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.column-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px; /* 小さくする */
+  height: 24px; /* 小さくする */
+  border-radius: 50%;
+  background: #4caf50; /* 緑 */
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.column-slider::-moz-range-thumb {
+  width: 24px; /* 小さくする */
+  height: 24px; /* 小さくする */
+  border-radius: 50%;
+  background: #4caf50;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.column-slider::-webkit-slider-thumb:hover,
+.column-slider::-moz-range-thumb:hover {
+  background: #388e3c; /* 濃い緑 */
+  transform: scale(1.1);
+}
+
+.slider-value {
+  font-size: 0.9em; /* 小さくする */
+  color: #1b5e20; /* さらに濃い緑 */
+  font-weight: bold;
+}
+
+/* 固定パネルのスタイル */
+.control-panel {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 240px; /* 幅を固定 */
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 1); /* 不透明な白 */
+  border-radius: 25px; /* 角丸に */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  z-index: 1000; /* 他の要素の上に表示 */
+  transition: transform 0.3s ease-in-out, left 0.3s ease-in-out, opacity 0.3s ease-in-out; /* スムーズなアニメーション */
+}
+
+.control-panel.hidden {
+  left: -260px; /* パネルの幅 + leftの初期値分、左に移動 */
+  opacity: 0; /* 完全に透明に */
+}
+
+/* メインコンテンツのスタイル */
+.main-content {
+  flex-grow: 1; /* 残りのスペースを全て占める */
+  padding-top: 20px; /* 必要に応じて調整 */
+  transition: margin-left 0.3s ease-in-out; /* スムーズなアニメーション */
+}
+
+.main-content.full-width {
+}
+
+/* 全体のレイアウト調整 */
+body {
+  margin: 0;
+  overflow-x: hidden; /* 横スクロールバーを非表示 */
+}
+
+#root {
+  display: flex;
+  width: 100%;
+}
+
+.control-panel {
+  flex-shrink: 0; /* 縮小しない */
+}
+
+/* トグルボタンのスタイル */
+.toggle-button {
+  position: fixed; /* 常に固定表示 */
+  top: 20px; /* 上から20px */
+  left: 20px; /* 左から20px */
+  background-color: rgba(255, 255, 255, 0.3); /* 白の半透明 */
+  color: rgba(51, 51, 51, 0.5); /* 濃いグレーの半透明 */
+  border: none;
+  border-radius: 10px;
+  width: 40px; /* 少し大きく */
+  height: 40px; /* 少し大きく */
+  font-size: 1.5em; /* アイコンを大きく */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1001; /* パネルより手前に表示 */
+}
+
+.toggle-button:hover {
+  background-color: rgba(255, 255, 255, 0.9); /* ホバー時は少し不透明度を上げる */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 影を強調 */
+  transform: scale(1.1);
+}
+
+/* Swiperのスタイル */
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.swiper-zoom-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #fff !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #fff !important;
+}
+
+.loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+  color: #555;
+  text-align: center;
+  z-index: 1000;
+}
+
+.spinner-icon {
+  width: 50px; /* スピナーのサイズを調整 */
+  height: 50px;
+  animation: spin 1s linear infinite; /* 回転アニメーション */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* FolderTreeのスタイル */
+.folder-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.folder-list ul {
+  list-style: none;
+  padding-left: 15px;
+}
+
+.folder-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 3px;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9em;
+}
+
+.folder-badge:hover {
+  background-color: #d0d0d0;
+}
+
+.folder-badge.selected {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+/* スクロールバーのスタイル */
+.control-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.control-panel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.control-panel::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.control-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* react-responsive-carousel 矢印を非表示 */
+.carousel .control-arrow {
+    display: none !important; /* 矢印を非表示にする */
+
+}
+
+
+
+/* 画像選択を無効にする */
+.unselectable-image {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard syntax */
+  -webkit-user-drag: none; /* Safari */
+}

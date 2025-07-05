@@ -1,0 +1,4 @@
+{
+  "EAGLE_LIBRARY_SEARCH_PATH": "set/your/eagle/library/path",
+  "ALLOW_ORIGINS": ["*"]
+}
