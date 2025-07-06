@@ -6,9 +6,10 @@ import Modal from "./components/Modal"; // モーダルコンポーネントを�
 import FolderTree from "./components/FolderTree"; // FolderTreeコンポーネントをインポート
 import ImageItem from "./components/ImageItem"; // ImageItemコンポーネントをインポート
 
-
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const App: React.FC = () => {
+
   const [images, setImages] = useState<{ id: string; url: string }[]>([]);
   const [offset, setOffset] = useState<number>(0);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -27,7 +28,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchInitialLibrary = async () => {
       try {
-        const response = await fetch("/eagle/library/current");
+        const response = await fetch(`${API_BASE_URL}/library/current`);
         if (!response.ok) {
           throw new Error(`現在のライブラリ名の取得に失敗しました: ${response.statusText}`);
         }
@@ -61,8 +62,8 @@ const App: React.FC = () => {
     try {
       const newLimit = newOffset + 20;
       const folderParam = folderId ? `&folderId=${folderId}` : "";
-      console.log(`fetchImages: Fetching URL: /eagle/library/image_list?limit=${newLimit}&offset=${newOffset}${folderParam}`);
-      const response = await fetch(`/eagle/library/image_list?limit=${newLimit}&offset=${newOffset}${folderParam}`, { signal });
+      console.log(`fetchImages: Fetching URL: ${API_BASE_URL}/library/image_list?limit=${newLimit}&offset=${newOffset}${folderParam}`);
+      const response = await fetch(`${API_BASE_URL}/library/image_list?limit=${newLimit}&offset=${newOffset}${folderParam}`, { signal });
 
       if (!response.ok) {
         throw new Error("画像リストの取得に失敗しました");
@@ -124,7 +125,7 @@ const App: React.FC = () => {
     const checkCurrentLibrary = async () => {
       console.log("checkCurrentLibrary: Attempting to fetch current library."); // Added log
       try {
-        const response = await fetch("/eagle/library/current");
+        const response = await fetch(`${API_BASE_URL}/library/current`);
         console.log("checkCurrentLibrary: Fetch response status:", response.status); // Added log
         if (!response.ok) {
           throw new Error(`現在のライブラリ名の取得に失敗しました: ${response.statusText}`); // More descriptive error

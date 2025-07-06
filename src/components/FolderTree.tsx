@@ -10,6 +10,8 @@ interface FolderTreeProps {
   onSelectFolder: (folderId: string | null) => void;
 }
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const FolderTree: React.FC<FolderTreeProps> = ({ onSelectFolder }) => {
   const [folders, setFolders] = useState<Folder[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -18,7 +20,7 @@ const FolderTree: React.FC<FolderTreeProps> = ({ onSelectFolder }) => {
   useEffect(() => {
     const fetchFolders = async () => {
       try {
-        const response = await fetch('/eagle/folder/list');
+        const response = await fetch(`${API_BASE_URL}/folder/list`);
         if (!response.ok) {
           throw new Error('フォルダリストの取得に失敗しました');
         }

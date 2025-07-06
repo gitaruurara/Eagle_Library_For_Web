@@ -119,6 +119,8 @@ toggleInfoButton: {
   tag: { display: 'inline-block', backgroundColor: '#007acc', color: 'white', padding: '2px 8px', borderRadius: '4px', marginRight: '5px', marginBottom: '5px', fontSize: '0.9em' },
 };
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const Modal: React.FC<ModalProps> = ({ images, selectedImageIndex, onClose }) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(selectedImageIndex);
   const [imageInfo, setImageInfo] = useState<EagleImageInfo | null>(null);
@@ -139,7 +141,7 @@ const Modal: React.FC<ModalProps> = ({ images, selectedImageIndex, onClose }) =>
     if (images.length === 0) return;
     setLoadingInfo(true);
     const imageId = images[currentSlideIndex].id;
-    fetch(`/eagle/api/item/info/${imageId}`)
+    fetch(`${API_BASE_URL}/api/item/info/${imageId}`)
       .then(response => {
         if (!response.ok) throw new Error(`Failed to fetch data: ${response.statusText}`);
         return response.json();

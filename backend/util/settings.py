@@ -8,7 +8,7 @@ import json
 import os
 import pathlib
 
-SETTINGS_FILE = pathlib.Path(__file__).parent.parent / "setting" /"settings.json"
+SETTINGS_FILE = pathlib.Path(__file__).parent.parent.parent / "setting" /"settings.json"
 print(SETTINGS_FILE)
 def load_settings():
     print(os.path.exists(SETTINGS_FILE))

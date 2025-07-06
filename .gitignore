@@ -29,7 +29,9 @@ __pycache__/
 .env
 start_ngrok.sh
 
-backend/setting/settings.json
+setting/settings.json
 /start_preview.sh
 /public/Eagle_Library_For_Web.png
 /public/Eagle_Library_For_Web
+/setting/.env.development
+/setting/.env.production

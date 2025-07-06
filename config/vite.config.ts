@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { execSync } from 'child_process'
+import path from 'path'
 
 // Pythonスクリプトを実行してIPアドレスを取得
 const getIPAddress = () => {
@@ -16,6 +17,7 @@ const getIPAddress = () => {
 const ipAddress = getIPAddress()
 
 export default defineConfig({
+  envDir: path.resolve(__dirname, '../setting'),
   plugins: [react()],
   server: {
     host: '0.0.0.0',
@@ -30,12 +32,5 @@ export default defineConfig({
       '127.0.0.1',
       '0.0.0.0',
     ],
-    proxy: {
-      '/eagle': {
-        target: `http://${ipAddress}:8000/`, // 動的に取得したIPアドレスを使用
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/eagle/, ''),
-      }
-    }
   },
 })
