@@ -95,8 +95,8 @@ cp backend/settings.json.example backend/settings.json
 `backend/settings.json` をテキストエディタで開き、以下の項目を設定します。
 
 *   `EAGLE_LIBRARY_SEARCH_PATH`: Eagleライブラリ（`.library` フォルダ）を検索するルートパスを指定します。例: `"set/your/path/to/library"`
-*   `ALLOW_ORIGINS`: CORS (Cross-Origin Resource Sharing) の許可オリジンを指定します。開発中は `["*"]` で全てを許可できますが、本番環境では具体的なオリジンを指定することを推奨します。例: `["http://localhost:3000", "https://your-domain.com"]`
-
+*   `ALLOW_ORIGINS`: CORS \(Cross-Origin Resource Sharing\) の許可オリジンを指定します。開発中は `["*"]` で全てを許可できますが、本番環境では具体的なオリジンを指定することを推奨します。例: `["http://localhost:3000", "https://your-domain.com"]`
+*   `API_BASE_URL`: バックエンドAPIのベースURLを指定します。例: `"http://192.168.XX.XX:8000"`
 ```json
 {
   "EAGLE_LIBRARY_SEARCH_PATH": "set/your/path/to/library",
@@ -108,7 +108,7 @@ cp backend/settings.json.example backend/settings.json
 
 フロントエンドのAPI接続先は、`setting/` ディレクトリ内の `.env` ファイルで管理されます。これらのファイルには、バックエンドAPIの完全なURL（プロトコル、IPアドレス、ポートを含む）を `VITE_API_BASE_URL` という変数で定義します。
 
-*   **`setting/.env.development`**: `npm run dev` で開発サーバーを起動する際に読み込まれます。通常は `http://localhost:8000` を指定しますが、同じローカルネットワーク内の他のデバイス（スマートフォンなど）からアクセスしたい場合は、バックエンドが動作しているPCの固定IPアドレス（例: `http://192.168.50.17:8000`）を指定すると便利です。
+*   **`setting/.env.development`**: `npm run dev` で開発サーバーを起動する際に読み込まれます。通常は `http://localhost:8000` を指定しますが、同じローカルネットワーク内の他のデバイス（スマートフォンなど）からアクセスしたい場合は、バックエンドが動作しているPCの固定IPアドレス（例: `http://192.168.XX.XX:8000`）を指定すると便利です。
 *   **`setting/.env.production`**: `npm run build` で本番ビルドを行う際に読み込まれます。本番環境のAPIの公開URLを指定してください。
 
 例:
