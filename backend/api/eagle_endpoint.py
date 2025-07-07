@@ -15,7 +15,7 @@ from fastapi.responses import StreamingResponse, FileResponse
 
 from util.eagle_library import my_eagle, eagle_library_dict
 from util.fast_app import app
-from util.settings import ALLOW_ORIGINS
+from util.settings import ALLOW_ORIGINS, API_BASE_URL
 
 app.add_middleware(
     CORSMiddleware,
@@ -185,7 +185,7 @@ async def get_image_list(limit: int = 100, offset: int = 0, folderId: str = None
     image_list_with_thumbnails = [
         {
             "id": item["id"],
-            "thumbnailUrl": f"/eagle/library/image/{item['id']}"
+            "thumbnailUrl": f"{API_BASE_URL}/library/image/{item['id']}"
         }
         for item in data
     ]

@@ -22,3 +22,4 @@ print(settings.keys())
 
 EAGLE_LIBRARY_SEARCH_PATH = settings["EAGLE_LIBRARY_SEARCH_PATH"]
 ALLOW_ORIGINS = settings["ALLOW_ORIGINS"]
+API_BASE_URL= settings["API_BASE_URL"]
